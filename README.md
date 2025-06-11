@@ -1,6 +1,4 @@
-# Romulus Vlad Lapusan (s5327051)
-
-## ML Programming Project
+## Machine Learning - Computer Vision
 
 1. Main Project Idea: Object Recognition
 
@@ -79,5 +77,3 @@ The dataset used for this project is the Chest X-Ray Images (Pneumonia) dataset 
 Dataset Link:
 
    * [Chest X-Ray Images (Pneumonia)](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia/data)
-
-   
