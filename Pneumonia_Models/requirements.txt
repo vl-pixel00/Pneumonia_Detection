@@ -1,0 +1,36 @@
+'''
+This file contains all the necessary tools that made this project possible, or at least the ones I have used on my personal computer.
+'''
+
+# Core requirements
+python = 3.12.4
+torch = 2.5.1
+torchvision = 0.20.1
+numpy = 2.2.0
+Pillow = 11.0.0
+scikit-learn = 1.6.0
+matplotlib = 3.10.0
+
+# File handling
+pathlib = 1.0.1
+requests = 2.31.0
+zipfile = 3.0
+
+'''
+The ones underneath are completely optional. Only use them if you wish to make use of the additional features or make some changes to the project.
+I have decided to not deploy the model, but these serve as a reference for future use.
+'''
+
+# Additional tools
+pytest>=7.4.0
+tqdm>=4.65.0
+notebook>=7.0.0
+ipykernel>=6.0.0
+
+# Logging 
+wandb>=0.15.5
+
+# For deployment
+flask>=2.3.2
+fastapi>=0.97.0
+uvicorn>=0.23.0
