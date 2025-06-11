@@ -1,79 +1,85 @@
-## Machine Learning - Computer Vision
+# Pneumonia Detection from X-Ray Images
 
-1. Main Project Idea: Object Recognition
+## Overview
 
-- Overview:
+Pneumonia detection is a critical application in medical imaging that involves the classification of chest X-rays to determine the presence of pneumonia. This project develops a series of increasingly sophisticated deep learning models to accurately detect pneumonia in chest X-ray images, culminating in a ResNet34-based model that achieves 87.02% test accuracy.
 
-Pneumonia detection is a critical application in medical imaging that involves the classification of chest X-rays to determine the presence of pneumonia. This project aims to develop a Convolutional Neural Network (CNN) model capable of accurately detecting pneumonia in unseen X-ray images.
+## Project Objectives
 
-- Objective:
+- Develop CNN-based classification models for detecting pneumonia in chest X-ray images
+- Achieve high accuracy and robustness in classifying unseen data
+- Provide detailed insights into model performance metrics
+- Ensure replicability through open-source code and comprehensive documentation
+- Test model generalisation on COVID-19 X-ray data
 
-  * Develop a CNN-based classification model for detecting pneumonia in chest X-ray images.
+## Models Implemented
 
-  * Achieve high accuracy and robustness in classifying unseen data.
+1. **Primary Model**: 
+   - Simple fully connected neural network with one hidden layer
+   - Input images: 56×56 pixels
+   - Training accuracy: 93.46%, Test accuracy: 43.75%
 
-  * Provide detailed insights into the model’s performance metrics, including accuracy, precision, recall, and F1-score.
+2. **Secondary Model**:
+   - CNN with 5 convolutional layers and 3 fully connected layers
+   - Higher resolution images (224×224 pixels)
+   - Added batch normalisation and dropout for regularisation
+   - Training accuracy: 95.64%, Test accuracy: 73.56%
 
-  * Ensure the project’s replicability by making the code open-source and providing in-depth documentation.
-    
-- Prior Knowledge / Papers / Examples:
+3. **Advanced Models (Third/Fourth)**:
+   - Transfer learning with pre-trained ResNet34
+   - Fine-tuned with custom layers for pneumonia detection
+   - Implemented class balancing via weighted sampling
+   - Training accuracy: 96.45%, Test accuracy: 87.02%
+   - F1-Score: 0.91
 
-    * Liu, Li, et al. “Deep Learning for Generic Object Detection: A Survey.” International Journal of Computer Vision, vol. 128, no. 2, Feb. 2020, pp. 261–318. Springer Link, https://doi.org/10.1007/s11263-019-01247-4
+## COVID-19 Generalisation Test
 
-    * Zaidi, Syed Sahil Abbas, et al. A Survey of Modern Deep Learning Based Object Detection Models. arXiv, 12 May 2021, arXiv.org, https://doi.org/10.48550/arXiv.2104.11892
+The final model was tested on a COVID-19 X-ray dataset without additional training:
+- Test accuracy: 70%
+- F1-score for COVID detection: 0.82
+- F1-score for normal cases: 0.12
 
-- Repositories and Projects:
+## Key Features
 
-    * PyTorch: Flexible and dynamic deep learning framework.
+- **Data Augmentation**: Enhancing model generalisation
+- **Class Balancing**: Weighted sampling to address class imbalance
+- **Transfer Learning**: Leveraging pre-trained ResNet34 weights
+- **Cross-Validation**: K-fold cross-validation for reliable performance estimation
+- **Comprehensive Metrics**: Precision, recall, F1-score, and confusion matrices
 
-    * Matplotlib: Visualisation library for creating plots and charts.
+## Dataset
 
-    * Scikit-Learn: Machine learning library for evaluating models.
+The project uses the [Chest X-Ray Images (Pneumonia) dataset](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia/data) from Kaggle, which contains:
+- X-ray images categorised into two classes: Normal and Pneumonia
+- Clear labels for training and testing
+- High-quality images suitable for deep learning
 
-2. Approach:
+For generalisation testing, the project uses the [COVID-19 X-ray Dataset](https://www.kaggle.com/datasets/khoongweihao/covid19-xray-dataset-train-test-sets).
 
-    - Dataset Preparation:
+## Academic References
 
-      * Download the Chest X-Ray dataset from Kaggle.
+- Liu, Li, et al. "Deep Learning for Generic Object Detection: A Survey." International Journal of Computer Vision, vol. 128, no. 2, Feb. 2020, pp. 261–318. [Springer Link](https://doi.org/10.1007/s11263-019-01247-4)
+- Zaidi, Syed Sahil Abbas, et al. "A Survey of Modern Deep Learning Based Object Detection Models." arXiv, 12 May 2021. [arXiv.org](https://doi.org/10.48550/arXiv.2104.11892)
 
-      * Perform data pre-processing, including resizing, normalisation, and augmentation.
+## Tools & Technologies
 
-      * Split the dataset into training, validation, and test sets, unless the author has already done so.
+- **PyTorch**: Deep learning framework
+- **Matplotlib**: Visualisation library
+- **Scikit-Learn**: Machine learning evaluation metrics
+- **Apple MPS**: Metal Performance Shaders for local training acceleration
 
-    - Model Architecture:
+## Project Structure
 
-      * Design a CNN model tailored for medical image classification.
+The project contains multiple Jupyter notebooks demonstrating the evolution of the models:
+- `Primary_PneumoniaModel.ipynb`: Basic fully connected model
+- `Secondary_PneumoniaModel_Train&Test.r0.ipynb`: CNN implementation
+- `Fourth_PnemumoniaModel_T+RN34.ipynb`: Transfer learning with ResNet34
+- `CombinedModels_Test.ipynb`: Testing on COVID-19 dataset
 
-      * Integrate architectural improvements such as batch normalisation, dropout, and residual connections.
+## Ethics
 
-      * Experiment with pre-trained models like ResNet18 for feature extraction.
+This project is for educational purposes only and not intended for clinical use. See [ETHICS.md](ETHICS.md) for full ethical considerations.
 
-    - Training:
+## Documentation
 
-      * Train the model using the Adam optimiser and appropriate learning rate scheduling.
-
-      * Monitor performance using metrics like loss and accuracy.
-
-    - Evaluation:
-
-      * Evaluate the model’s performance on the test set using accuracy, precision, recall, and F1-score.
-
-      * Analyse the confusion matrix to identify areas for improvement.
-
-    - Deployment:
-
-      * Package the model and provide scripts for inference on unseen data.
-
-4. Dataset:
-
-The dataset used for this project is the Chest X-Ray Images (Pneumonia) dataset available on Kaggle. It contains:
-
-   * X-ray images categorised into two classes: Normal and Pneumonia.
-
-   * Clear labels for training and testing.
-
-   * High-quality images suitable for training deep learning models.
-
-Dataset Link:
-
-   * [Chest X-Ray Images (Pneumonia)](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia/data)
+For detailed technical documentation, model performance metrics, and implementation details, see [DOCUMENTATION.md](DOCUMENTATION.md).
