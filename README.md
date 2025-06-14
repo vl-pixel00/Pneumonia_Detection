@@ -82,4 +82,4 @@ This project is for educational purposes only and not intended for clinical use.
 
 ## Documentation
 
-For detailed technical documentation, model performance metrics, and implementation details, see [DOCUMENTATION.md](DOCUMENTATION.md).
+For detailed technical documentation, model performance metrics, and implementation details, see [Documentation.md](Documentation.md).
